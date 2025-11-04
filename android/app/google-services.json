@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "746125344992",
+    "project_id": "wegether-b75ac",
+    "storage_bucket": "wegether-b75ac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746125344992:android:83810c64578beea66f5085",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwE_XNt6z_cmuAsx3tV34p-GujBVAL_N8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

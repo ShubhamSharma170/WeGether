@@ -1,9 +1,12 @@
 import 'package:chat_app/pages/login.dart';
 import 'package:chat_app/pages/splash.dart';
 import 'package:chat_app/theme/light_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
