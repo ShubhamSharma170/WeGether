@@ -1,8 +1,8 @@
 import 'package:chat_app/components/setting_items.dart';
-import 'package:chat_app/pages/aboutUs.dart';
-import 'package:chat_app/pages/editprofile.dart';
-import 'package:chat_app/pages/help&support.dart';
-import 'package:chat_app/pages/theme.dart';
+import 'package:chat_app/pages/settings/aboutUs.dart';
+import 'package:chat_app/pages/settings/editprofile.dart';
+import 'package:chat_app/pages/settings/help&support.dart';
+import 'package:chat_app/pages/settings/theme.dart';
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatelessWidget {
@@ -68,26 +68,19 @@ class SettingPage extends StatelessWidget {
                   break;
               }
             },
-            child: Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: colorScheme.primary,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(item.icon, color: colorScheme.tertiary, size: 30),
-                    SizedBox(height: 10),
-                    Text(
-                      item.name!,
-                      style: TextStyle(
-                        color: colorScheme.tertiary,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                color: colorScheme.secondary,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(item.icon, size: 30),
+                      SizedBox(height: 10),
+                      Text(item.name!),
+                    ],
+                  ),
                 ),
               ),
             ),
