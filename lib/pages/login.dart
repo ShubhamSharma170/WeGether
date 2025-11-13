@@ -82,42 +82,38 @@ class LoginPage extends StatelessWidget {
                           NotificationBar.showSnackBar(ctx, result);
                         }
                       }
-
-                      SizedBox(height: 20);
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Not a member?",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: color.primary,
-                            ),
-                          ),
-                          SizedBox(width: 5),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return RegisterPage();
-                                  },
-                                ),
-                              );
-                            },
-                            child: Text(
-                              "Register now",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: color.primary,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
                     },
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Not a member?",
+                        style: TextStyle(fontSize: 16, color: color.primary),
+                      ),
+                      SizedBox(width: 5),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return RegisterPage();
+                              },
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Register now",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: color.primary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
