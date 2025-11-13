@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:chat_app/components/button.dart';
 import 'package:chat_app/components/notification_bar.dart';
 import 'package:chat_app/components/textfield.dart';
+import 'package:chat_app/firebase/save_user_detail.dart';
 import 'package:chat_app/pages/home.dart';
 import 'package:chat_app/provider/register_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -84,6 +86,9 @@ class RegisterPage extends StatelessWidget {
                             NotificationBar.showSnackBar(
                               ctx,
                               "User created successfully",
+                            );
+                            SaveUserDetail.saveUserDetails(
+                              FirebaseAuth.instance.currentUser!.uid,
                             );
                             // navigate to home page
                             Navigator.pushAndRemoveUntil(
