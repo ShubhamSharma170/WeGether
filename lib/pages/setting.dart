@@ -15,7 +15,7 @@ class SettingPage extends StatelessWidget {
       SettingItems(icon: Icons.edit, name: "Edit Profile"),
       SettingItems(icon: Icons.color_lens, name: "Theme"),
       SettingItems(icon: Icons.support_agent, name: "Help & Support"),
-      SettingItems(icon: Icons.info, name: "About Us"),
+      // SettingItems(icon: Icons.info, name: "About Us"),
     ];
     return Scaffold(
       appBar: AppBar(
@@ -58,14 +58,14 @@ class SettingPage extends StatelessWidget {
                     ),
                   );
                   break;
-                case "About Us":
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AboutUsPage(),
-                    ),
-                  );
-                  break;
+                // case "About Us":
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const AboutUsPage(),
+                //     ),
+                //   );
+                //   break;
               }
             },
             child: Padding(
