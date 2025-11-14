@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:chat_app/components/edit_profile_items.dart';
 import 'package:chat_app/pages/settings/edit_profile_pages/bio.dart';
 import 'package:chat_app/pages/settings/edit_profile_pages/display_name.dart';
@@ -13,7 +15,7 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<EditProfileItems> profileItems = [
-      EditProfileItems(iconData: Icons.photo, itemName: "Profile Picture"),
+      // EditProfileItems(iconData: Icons.photo, itemName: "Profile Picture"),
       EditProfileItems(iconData: Icons.person, itemName: "Display Name"),
       EditProfileItems(iconData: Icons.perm_identity, itemName: "Username"),
       EditProfileItems(iconData: Icons.info, itemName: "Bio"),
@@ -38,16 +40,18 @@ class EditProfilePage extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               switch (item.itemName) {
-                case "Profile Picture":
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const UserPhoto()),
-                  );
-                  break;
+                // case "Profile Picture":
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => const UserPhoto()),
+                //   );
+                //   break;
                 case "Display Name":
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const DisplayName()),
+                    MaterialPageRoute(
+                      builder: (context) => const DisplayName(),
+                    ),
                   );
                   break;
                 case "Username":
