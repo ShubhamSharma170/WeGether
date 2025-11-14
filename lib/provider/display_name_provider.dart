@@ -1,4 +1,4 @@
-import 'package:chat_app/firebase/display_name_store.dart';
+import 'package:chat_app/firebase_functions/display_name_store.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
