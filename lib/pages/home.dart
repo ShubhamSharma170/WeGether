@@ -1,3 +1,4 @@
+import 'package:chat_app/components/search_bar.dart';
 import 'package:chat_app/pages/setting.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,12 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(child: Text("Home Page")),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: [CustomSearchBar()]),
+        ),
+      ),
     );
   }
 }

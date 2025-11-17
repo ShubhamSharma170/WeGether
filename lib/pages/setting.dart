@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:chat_app/components/setting_items.dart';
 import 'package:chat_app/pages/settings/aboutUs.dart';
 import 'package:chat_app/pages/settings/editprofile.dart';
