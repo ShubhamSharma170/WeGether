@@ -102,7 +102,7 @@ class RegisterPage extends StatelessWidget {
                             NotificationBar.showSnackBar(ctx, isCreated);
                           }
                         }
-                      },
+                      }, 
                     ),
                     SizedBox(height: 20),
                     Row(
