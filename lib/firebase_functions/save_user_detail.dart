@@ -12,7 +12,7 @@ class SaveUserDetail {
         "userName": "",
         "displayName": "",
         "phoneNumber": "",
-        "gmail": "",
+        "gmail": user.email,
         "createdAt": FieldValue.serverTimestamp(),
       });
     }
