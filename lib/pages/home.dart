@@ -1,4 +1,5 @@
 import 'package:chat_app/components/search_bar.dart';
+import 'package:chat_app/firebase_functions/search_user.dart';
 import 'package:chat_app/pages/search_user_page/search_user.dart';
 import 'package:chat_app/pages/setting.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,6 +35,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme color = Theme.of(context).colorScheme;
+    TextEditingController controller = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +70,10 @@ class HomePage extends StatelessWidget {
       // BODY: Search Bar aur Chat List
       body: Column(
         children: [
-          const Padding(padding: EdgeInsets.all(8.0), child: CustomSearchBar()),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CustomSearchBar(controller: controller),
+          ),
 
           // horizontal scroll widget
           SizedBox(
@@ -174,6 +179,7 @@ class HomePage extends StatelessWidget {
       // 3. Floating Action Button
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          SearchUserFunction.searchUser("");
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => SearchUser()),

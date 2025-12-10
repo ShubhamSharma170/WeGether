@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:chat_app/model/user_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +32,8 @@ class LoginProvider extends ChangeNotifier {
 
       // User logged in successfully
       if (userCredential.user != null) {
+      DocumentSnapshot snapshot = await  FirebaseFirestore.instance.collection("users").doc(userCredential.user!.uid).get();
+      UserModel model = UserModel.fromMap(snapshot.data() as Map<String, dynamic>);
         log("User Details : ${userCredential.user}");
         return null;
       } else {

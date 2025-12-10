@@ -1,7 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key});
+  final  Function(String)? onChanged;
+  TextEditingController controller;
+  CustomSearchBar({
+    required this.controller,
+    this.onChanged, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +21,7 @@ class CustomSearchBar extends StatelessWidget {
         prefixIcon: Icon(Icons.search, color: color.primary),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
+      onChanged: onChanged,
     );
   }
 }
