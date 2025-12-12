@@ -1,6 +1,7 @@
 import 'package:chat_app/pages/splash.dart';
 import 'package:chat_app/provider/display_name_provider.dart';
 import 'package:chat_app/provider/search_user_provider.dart';
+import 'package:chat_app/routes/route.dart';
 import 'package:chat_app/theme/light_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         title: 'WeGether',
         theme: lightTheme,
         home: const SplashPage(),
+        onGenerateRoute: (settings) => Routes.generateRoute(settings),
       ),
     );
   }

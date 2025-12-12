@@ -1,7 +1,9 @@
 import 'package:chat_app/components/search_bar.dart';
+import 'package:chat_app/firebase_functions/firebase_helper.dart';
 import 'package:chat_app/firebase_functions/search_user.dart';
+import 'package:chat_app/model/user_model.dart';
 import 'package:chat_app/pages/search_user_page/search_user.dart';
-import 'package:chat_app/pages/setting.dart';
+import 'package:chat_app/routes/routes_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +31,29 @@ final List<String> catName = [
   "Unread",
 ];
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  UserModel? userModel;
+  @override
+  initState() {
+    fetchUserData();
+    super.initState();
+  }
+
+  void fetchUserData() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      userModel = await FirebaseHelper.getUserDetails(user.uid);
+      // Fetch user data from Firestore using user.uid
+      // and update the userModel variable
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +67,11 @@ class HomePage extends StatelessWidget {
           // Settings Button (Already tha)
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingPage()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => SettingPage()),
+              // );
+              Navigator.pushNamed(context, RouteName.setting);
             },
             icon: const Icon(Icons.settings),
             style: ButtonStyle(
@@ -179,11 +203,12 @@ class HomePage extends StatelessWidget {
       // 3. Floating Action Button
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          SearchUserFunction.searchUser("");
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SearchUser()),
-          );
+          // SearchUserFunction.searchUser("");
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => SearchUser()),
+          // );
+          
         },
         backgroundColor: color.primary,
         child: const Icon(Icons.message, color: Colors.white),
