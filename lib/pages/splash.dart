@@ -1,7 +1,5 @@
 import 'dart:async';
-
-import 'package:chat_app/pages/home.dart';
-import 'package:chat_app/pages/login.dart';
+import 'package:chat_app/routes/routes_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -19,15 +17,19 @@ class _SplashPageState extends State<SplashPage> {
     Timer(Duration(seconds: 2), () {
       if (mounted) {
         User? user = FirebaseAuth.instance.currentUser;
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return user != null ? const HomePage() : LoginPage();
-            },
-          ),
-          (route) => false,
-        );
+        if (user != null) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            RouteName.home,
+            (route) => false,
+          );
+        } else {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            RouteName.login,
+            (route) => false,
+          );
+        }
       }
     });
   }
