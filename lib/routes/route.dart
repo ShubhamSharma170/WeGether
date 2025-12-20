@@ -1,5 +1,6 @@
 import 'package:chat_app/pages/home.dart';
 import 'package:chat_app/pages/login.dart';
+import 'package:chat_app/pages/search_user_page/search_user.dart';
 import 'package:chat_app/pages/setting.dart';
 import 'package:chat_app/pages/settings/editprofile.dart';
 import 'package:chat_app/pages/settings/help&support.dart';
@@ -35,8 +36,20 @@ class Routes {
         return MaterialPageRoute(
           builder: (BuildContext context) => HelpAndSupportPage(),
         );
+      case RouteName.search:
+        var args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (BuildContext context) => SearchUser(
+                searchedUser: args['searchedUser'],
+                firebaseAuth: args["firebaseAuth"],
+          ),
+        );
       case RouteName.home:
-        return MaterialPageRoute(builder: (BuildContext context) => HomePage());
+        var args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(builder: (BuildContext context) => HomePage(
+              firebaseAuth: args["firebaseAuth"],
+              userModel: args["userModel"],
+        ));
       default:
         return MaterialPageRoute(
           builder: (_) =>

@@ -6,4 +6,5 @@ class RouteName {
   static const String editprofile = 'editprofile';
   static const String theme = 'theme';
   static const String helpAndSupport = 'help&support';
+  static const String search = 'search';
 }

@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:chat_app/firebase_functions/firebase_helper.dart';
+import 'package:chat_app/model/user_model.dart';
 import 'package:chat_app/routes/routes_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +13,12 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  UserModel? userModel;
+  User? firebaseAuth;
   @override
   void initState() {
     super.initState();
+    getData();
     Timer(Duration(seconds: 2), () {
       if (mounted) {
         User? user = FirebaseAuth.instance.currentUser;
@@ -21,6 +26,10 @@ class _SplashPageState extends State<SplashPage> {
           Navigator.pushNamedAndRemoveUntil(
             context,
             RouteName.home,
+            arguments: {
+              "userModel": userModel,
+              "firebaseAuth": firebaseAuth,
+            },
             (route) => false,
           );
         } else {
@@ -32,6 +41,13 @@ class _SplashPageState extends State<SplashPage> {
         }
       }
     });
+  }
+
+  void getData() async {
+    userModel = await FirebaseHelper.getUserDetails(
+      FirebaseAuth.instance.currentUser?.uid ?? "",
+    );
+    firebaseAuth = FirebaseAuth.instance.currentUser;
   }
 
   @override

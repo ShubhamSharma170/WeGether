@@ -12,7 +12,7 @@ class SaveUserDetail {
       userName: "",
       displayName: "",
       phoneNumber: "",
-      email: user?.email ?? "",
+      gmail: user?.email ?? "",
     );
     if (user != null) {
       await FirebaseFirestore.instance.collection("users").doc(uid).set(

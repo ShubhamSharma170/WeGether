@@ -1,13 +1,13 @@
 class UserModel {
   String? displayName;
-  String? email;
+  String? gmail;
   String? phoneNumber;
   String? uid;
   String? userName;
 
   UserModel({
     required this.displayName,
-    required this.email,
+    required this.gmail,
     required this.phoneNumber,
     required this.uid,
     required this.userName,
@@ -15,7 +15,7 @@ class UserModel {
 
   UserModel.fromMap(Map<String, dynamic> map) {
     displayName = map['displayName'];
-    email = map['email'];
+    gmail = map['gmail'];
     phoneNumber = map['phoneNumber'];
     uid = map['uid'];
     userName = map['userName'];
@@ -24,7 +24,7 @@ class UserModel {
   Map<String, dynamic> toMap() {
     return {
       "displayName": displayName,
-      "email": email,
+      "gmail": gmail,
       "phoneNumber": phoneNumber,
       "uid": uid,
       "userName": userName,
